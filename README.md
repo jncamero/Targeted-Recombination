@@ -1,4 +1,5 @@
 # Targetted-Recombination
+
 Code for 1) building the constraints matrix using an Rccp function and 2) solving the integer program with the constraints to determine the optimal recombination points in an F1 to maximize gain.
  
 The inputs are 	1) Matrix of phased F1 marker genotypes
@@ -15,4 +16,8 @@ The inputs are 	1) Matrix of phased F1 marker genotypes
 			     1		1
 			     2		1
 			     3		2
-		
+			
+R environment details
+Environment: x86_64-pc-linux-gnu
+Version: R version 4.0.3 (2020-10-10)
+
