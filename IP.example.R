@@ -14,6 +14,7 @@ pars=array(rbinom(prob=0.5,no.markers*2,1),c(no.markers,2))
 #Sample random vector of marker effects from a normal distribution with mean 0 and sd of 0.05
 meff=round(rnorm(no.markers,mean=0,sd=.05),2)
 
+#
 lgend1=seq(1)
 lgend2=seq(10)
 ###########################
