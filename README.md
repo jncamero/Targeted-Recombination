@@ -1,4 +1,4 @@
-# Targetted-Recombination
+# Targeted-Recombination
 
 Code for 1) building the constraints matrix using an Rccp function and 2) solving the integer program with the constraints to determine the optimal recombination points in an F1 to maximize gain.
  
