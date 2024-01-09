@@ -1,18 +1,21 @@
 library(Rglpk)
 library(Rcpp)
+sourceCpp("tmat.users.cpp")
 
+#Number of allowed recombinations
+norec=2
 #Number of marker loci to simulate
-no.markers=100
+no.markers=10
 
 #Creating a random F1, with no.markers rows and 2 columns
 pars=array(rbinom(prob=0.5,no.markers*2,1),c(no.markers,2))
 #Sample random vector of marker effects
-meff=rnorm(no.markers,mean=0,sd=.05)
+meff=round(rnorm(no.markers,mean=0,sd=.05),2)
 
 marker_index=1:nrow(pars)
 
-lgend1=seq(1,90,10)
-lgend2=seq(10,100,10)
+lgend1=seq(1)
+lgend2=seq(10)
 #############################################################
 one=array(0,8)
 one[c(1,4)]=1
@@ -58,7 +61,6 @@ b<-rowSums(x[,c(2,3)])
 fin=cbind(a,b)
 
 #Organizing optimal recombination points
-#return the Optimal recombination points
 cnt=0
 recpts=c()
 for(i in c(2,4)){
@@ -66,8 +68,8 @@ cnt=cnt+sum(which(x[,i]==1)%in%lgend1)
 #print(which(x[,i]==1)%in%lgend1)
 recpts=c(recpts,which(x[,i]==1))
 }
+
+#Optimal recombination points
+
 targrec=recpts[which(!recpts%in%lgend1)]
 
-#recpts: matrix of optimal recombination points, subsetted from map.tog
-recpts=map.tog.markers[targrec,]
-recpts=recpts[order(recpts$Chrom,recpts$marker),]
